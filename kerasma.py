@@ -5,19 +5,19 @@ import numpy
 numpy.random.seed(7)
 
 # load pima indians dataset
-dataset = numpy.loadtxt("pima-indians-diabetes.data", delimiter=",")
+dataset = numpy.loadtxt("joker_2017.csv", delimiter="\t")
 # split into input (X) and output (Y) variables
-X = dataset[:,0:8]
-Y = dataset[:,8]
+X = dataset[:,0:6]
+Y = dataset[:,6]
 
 # create model
 model = Sequential()
-model.add(Dense(12, input_dim=8, activation='relu'))
+model.add(Dense(12, input_dim=6, activation='relu'))
 model.add(Dense(24, activation='relu'))
 model.add(Dense(120, activation='relu'))
 model.add(Dense(36, activation='relu'))
 model.add(Dense(12, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))
+model.add(Dense(6, activation='sigmoid'))
 
 # Compile model
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
