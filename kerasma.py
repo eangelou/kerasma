@@ -6,9 +6,12 @@ numpy.random.seed(7)
 
 # load pima indians dataset
 dataset = numpy.loadtxt("joker_2017.csv", delimiter="\t")
+dataset = numpy.append(dataset, numpy.loadtxt("joker_2016.csv", delimiter="\t"), axis=0)
+dataset = numpy.append(dataset, numpy.loadtxt("joker_2015.csv", delimiter="\t"), axis=0)
+print (dataset)
 # split into input (X) and output (Y) variables
 X = dataset[:,0:6]
-Y = dataset[:,6]
+Y = dataset[:,0:6]
 
 # create model
 model = Sequential()
